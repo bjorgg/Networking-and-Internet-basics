@@ -5,82 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-    <title>Networking and Internet basics</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400&display=swap" rel="stylesheet">
+    <title>Linux navigation</title>
 </head>
 <body>
     <article>
-        <h1>Networking and Internet basics</h1>
-        <img class="first-img" src="images/internet_of_things.svg" alt="Internet of things">
+        <h1>– Linux navigation –</h1>
+        <hr>
 
-        <h2>The Internet</h2>
-        <p>The Internet is a technical infrastructure that allows billions of computers to be connected 
-            all together. Through simple networks or networks of networks. To connect to another computer 
-            you need to be able find it. Any computer linked to a network has a unique address that identifies it, 
-            called an "IP address".</p><br>
-        <img src="images/Data_Flow_of_the_Internet_Protocol_Suite.png" alt="Internet data flow">
-        
-        <h2>Internet architecture</h2>
-        <p><strong>Your internet connection</strong> - Allows you to send and receive data on the web. <br>
-            <strong>TCP/IP</strong>  - Transmission Control Protocol and Internet Protocol are communication 
-            protocols that define how data should travel across the internet. <br>
-            <strong>Communication</strong> - <em> Syntax:</em> data format and coding, <em>Semantics:</em> control 
-            information and error handling, <em>Timing:</em> speed matching and sequencing. <br>
-            <strong>DNS</strong> - Domain Name Servers are like an address book for websites. When you type 
-            a web address in your browser, the browser looks at the DNS to find the website's real address 
-            before it can retrieve the website. <br> 
-            <strong>HTTP</strong> - Hypertext Transfer Protocol is an application protocol that defines a 
-            language for clients and servers to speak to each other. HTTP itself runs on top of other protocols. <br> 
-            <strong>Component files</strong> - A website is made up of many different files. <br>
-            <strong>Code files</strong> - Websites are built primarily from HTML, CSS, and JavaScript. <br>
-            <strong>Assets</strong> - This is a collective name for all the other stuff that makes up a 
-            website, such as images, music, video, Word documents, and PDFs.</p>
+        <h2>Introduction</h2>
+        <p>This is my first time navigating a Linux system so I can't teach you everything you need to know 
+            to use it effectively. I'm just going to try out some basic terminal commands and file 
+            manipulation and share that with you.
         <br>
-        <img src="images/How-DNS-Work-1024x656.png" alt="How DNS works">
-        
-        <h2>The Web</h2>
-        <p>The Web is a service built on top of the infrastructure. Computers connected to the web are called 
-            clients and servers. The client sends requests and the server responses. Clients are internet-connected 
-            devices like your computer or your phone. Servers are computers that store webpages, sites, or apps. A copy 
-            of the webpage is downloaded from the server onto the client machine to be displayed in the web browser.</p>
         <br>
-        <img src="images/HTTP-Header.png" alt="HTTP">
+            There are a lot of Linux distrubutions out there, I chose to install the latest LTS version of 
+            Ubuntu via Virtual Box. I will not go into details about the installation here, you can find 
+            many tutorials about that online if you haven't done that already. So lets open up the terminal and get started!</p><br>
+            <br>
         
-        <h2>Web servers</h2>
-        <p>A web server is server software or hardware dedicated to running this software, that can satisfy client 
-            requests on the World Wide Web. A web server can, in general, contain one or more websites. A web server 
-            processes incoming network requests over HTTP and several other related protocols. The primary function 
-            of a web server is to store, process and deliver web pages to clients. The communication between client 
-            and server takes place using the Hypertext Transfer Protocol (HTTP).</p>
+        <h2>Basic navigation</h2>
         <br>
         
-        <img src="images/Frontend-vs-Backend.png" alt="Frontend vs. Backend">
-        
-        <h2>Caching</h2>
-        <p>Caching is the process of storing data in a cache. A cache is a temporary storage area. When you return 
-            to a page you've recently looked at, the browser can get those files from the cache rather than the 
-            original server, saving you time and saving the network the burden of additional traffic.</p>
+        <h3>Print working directory - <code>pwd</code></h3>
+        <p>Shows the current directory you are in. If you have just started your system it's most likely 
+            your user account's home directory.</p>
+<pre>
+$ pwd
+/home/yourusername</pre>
         <br>
         
-        <img src="images/web-cache.png" alt="Web cache">
+        <h3>List - <code>ls</code></h3>
+        <p>Lists all the content inside the directory. It's possible to add some optional flags to the 
+            command to modify the default behavior.</p>
+<pre>
+$ ls 
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos</pre>
+        <p>It's is also possible to use <code>tree</code> command to get more fancy visualization. I had to 
+            install it first, the terminal gave me directions on how to do that.</p>
+<pre>
+$ tree
+<img src="images/tree.png" alt="tree"></pre>
+<br>
         
-        <h2>Traditional Web Hosting vs. Cloud Computing</h2>
-        <p>To have a well functioning and efficient website, you need to use a web hosting service. There are 
-            two ways you can choose from, traditional web hosting and cloud computing. Web hosting gives you 
-            a fixed server or a portion of a single server, where cloud computing gives you the benefit of many 
-            servers all working together as one. Your particular website or application may only need one small 
-            portion of a single server, so there's no need to get a dedicated server.</p>
+        <h3>Change directory - <code>cd</code></h3>
+        <p>This is the most basic command line there is. The directory changes according to what you type 
+            after <code>cd</code>. You can give an absolute path or a relative path which refers to a directory 
+            within the current directory. Typing <code>cd</code> alone will bring you to the home directory 
+            of the user. <code>cd -</code> will bring you to the recent directory you were in. <code>cd ..</code> 
+            will bring you to the parent directory of the directory you are in.</p>
+<pre>
+$ cd Documents
+$ pwd
+/home/yourusername/Documents
+
+$ cd ..
+$ pwd
+/home/yourusername
+
+$ cd - 
+/home/yourusername/Documents</pre>
+<br>
+        <h2>File manipulation</h2>
         <br>
-        
-        <img src="images/Dedicated-Server.png" alt="Dedicated server">
-        
-        <h2>Static vs. Dynamic pages</h2>
-        <p>A data structure is a collection of data items, is a way of storing and organizing data efficiently such that 
-            the required operations on them can be performed to be efficient concerning time as well as memory. There are 
-            two approaches to creating a data structure; static data structure and dynamic data structure. In static web 
-            pages, pages will remain the same until someone changes it manually. In dynamic web pages, the content of pages 
-            is different for different visitors.</p>
-        <br>
-        <img src="images/Static_and_dynamic_data_structures.svg" alt="Static vs. dynamic structure">
+
+        <h3>Make directory - <code>mkdir</code></h3>
+        <p>This command is used to create empty directories. After <code>mkdir</code> you write the name of 
+            the directory you want to create an it's created in the current directory. To create any 
+            directories necessary to construct a given directory path, you can use the <code>-p</code> option. This 
+            allows you to create nested directories in one step.</p>
+<pre>
+$ mkdir demo
+$ ls
+demo
+
+$ mkdir -p demo2/test
+$ ls
+demo  demo2
+
+$ cd demo2
+$ ls
+test</pre>
+<br>
+
+        <h3>Create a file - <code>touch</code></h3>
+        <p>This command creates an empty file. After <code>touch</code> you write the name of the file 
+            you want to create and it's created in the current directory. It's also possible to use an 
+            absolute path to choose another directory.</p>
+<pre>
+$ cd
+$ touch file1
+$ ls
+file1
+
+$ touch /home/yourusername/file2
+$ ls
+file1  file2</pre>
+<br>
+
+        <h3>Move - <code>mv</code></h3>
+        <p>This command is used to move files. It can also be used to rename files and directories. 
+            When using <code>mv</code> to rename you have to remember that Linux system will not 
+            prevent you from certain destructive actions. If you choose a name that exists already the 
+            previous file will be overwritten and there is no way to recover it.</p>
+<pre>
+$ mv file1 Documents
+$ ls Documents
+file1
+
+$ cd Documents
+$ mv file1 newname
+$ ls 
+newname</pre>
+<br>
+
+        <h3>Remove - <code>rm</code></h3>
+        <p>This command removes files. If you want to remove directories you can use <code>rmdir</code>, 
+            this can only be used with empty directories. if you want to remove a non-empty directory you 
+            can use <code>rm -r</code>, this will remove all of the directory's content and the directory 
+            it self. These actions cannot be undone.</p>
+<pre>
+$ rm newname
+
+$ rmdir demo
+
+$ rm -r demo2</pre>
+<br>
+
+        <h3>Copy - <code>cp</code></h3>
+        <p>This command copies files. If you want to copy directories you can use <code>cp -r</code>. 
+            Note that as with the <code>mv</code> command it's possible to overwrite files if you 
+            choose a name that already exists.</p>
+<pre>
+$ cp newname newname2
+$ ls
+newname  newname2</pre>
+<br>
+
+        <h2>Conclusion</h2>
+        <p>I had alot of fun trying out the Linux system. There are alot of commands I still have 
+            to try out but I won't cover more here, this could then go on forever. Below is a link 
+            to a Unix/Linux command line cheet sheet for you to check out, good luck! <br>
+            <br>
+            <a href="http://files.fosswire.com/2007/08/fwunixref.pdf" target="blank" class="cs-link">CheetSheet!</a></p>
     </article>
 </body>
 </html>
